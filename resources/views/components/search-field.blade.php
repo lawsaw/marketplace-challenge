@@ -1,17 +1,17 @@
 <div {{ $attributes->merge(['class' => 'bg-white rounded-lg flex items-center self-stretch']) }}>
-    <div class="w-[40px] flex flex-shrink-0 items-center justify-center">
-        <svg class="w-[24px] h-[24px] fill-global-black-60">
+    <div class="w-10 flex flex-shrink-0 items-center justify-center">
+        <svg class="w-6 h-6 fill-global-black-60">
             @include('icons.search')
         </svg>
     </div>
     <input type="text" class="w-full flex-grow outline-0 text-black" />
-    <x-icon-button theme="light-blue" icon-size="small">
+    <x-primitives.icon-button theme="light-blue" icon-size="small">
         @include('icons.close-modal')
-    </x-icon-button>
-    <x-icon-button theme="light">
+    </x-primitives.icon-button>
+    <x-primitives.icon-button theme="light">
         @include('icons.microphone')
-    </x-icon-button>
-    <x-button>
+    </x-primitives.icon-button>
+    <x-primitives.button>
         Знайти
-    </x-button>
+    </x-primitives.button>
 </div>

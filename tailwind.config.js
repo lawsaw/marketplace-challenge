@@ -20,6 +20,7 @@ export default {
                 'global-green-light': '#00bc52',
                 'global-black': '#221f1f',
                 'global-black-5': '#f5f5f5',
+                'global-black-20': '#d2d2d2',
                 'global-black-60': '#797878',
                 'global-red': '#f84147',
                 'global-orange': '#ff5c00',

@@ -1,7 +1,7 @@
 @props([
     'theme' => 'dark',
     'iconSize' => 'medium',
-    'counter' => 0,
+    'counter' => "0",
 ])
 
 @php
@@ -18,11 +18,11 @@
     $iconSizeClass = $iconSizeClasses[$iconSize] ?? $iconSizeClasses['medium'];
 @endphp
 
-<button {{ $attributes->merge(['class' => "relative w-[40px] h-[40px] flex items-center justify-center rounded flex-shrink-0 {$themeClass}"]) }}>
+<button {{ $attributes->merge(['class' => "relative w-10 h-10 flex items-center justify-center rounded flex-shrink-0 {$themeClass}"]) }}>
     <svg class="{{ $iconSizeClass }}">
         {{ $slot }}
     </svg>
-    @if($counter !== 0)
+    @if($counter !== "0")
         <div class="absolute right-[-4px] top-[-4px] text-white h-[20px] min-w-[20px] text-xs bg-global-green rounded-full flex items-center justify-center">
             {{ $counter }}
         </div>
