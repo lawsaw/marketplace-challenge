@@ -7,7 +7,7 @@
 @php
     $themeClasses = [
         'dark' => 'fill-white hover:bg-white/20 hover:active:bg-white/25',
-        'light' => 'fill-black hover:fill-link-hover',
+        'light' => 'fill-global-black-40 hover:fill-link-hover',
         'light-blue' => 'fill-global-blue hover:fill-link-hover',
     ];
     $iconSizeClasses = [

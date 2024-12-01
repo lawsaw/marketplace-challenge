@@ -1,0 +1,7 @@
+@layer components {
+    .article {
+        p {
+            @apply mb-3;
+        }
+    }
+}

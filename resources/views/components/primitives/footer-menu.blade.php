@@ -7,12 +7,9 @@
     <ul class="mt-2 space-y-2">
         @foreach($links as $link)
             <li class="block">
-                <a
-                    href="{{ $link['href'] }}"
-                    class="block text-sm text-global-blue hover:underline hover:text-link-hover"
-                >
+                <x-primitives.button theme="link" href="{{ $link['href'] }}">
                     {{ $link['label'] }}
-                </a>
+                </x-primitives.button>
             </li>
         @endforeach
     </ul>

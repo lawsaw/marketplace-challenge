@@ -65,7 +65,7 @@
     </header>
     <main class="bg-white flex-grow">
         <x-primitives.viewport>
-            main
+            <x-product></x-product>
         </x-primitives.viewport>
     </main>
     <footer class="bg-global-black-5 text-global-black-60 py-6">
@@ -73,7 +73,7 @@
             <div class="md:flex lg:block xl:flex">
                 <div class="pb-4 border-b border-global-black-20 md:border-0 md:w-1/3 lg:w-auto lg:border-b xl:border-0 xl:w-1/5">
                     <div class="flex flex-col items-center space-y-4 md:items-start lg:flex-row lg:space-y-0 lg:space-x-4 xl:flex-col xl:space-y-4 xl:space-x-0">
-                        <x-primitives.button theme="link" icon-size="small">
+                        <x-primitives.button theme="text" icon-size="small">
                             <x-slot:icon>
                                 @include('icons.clock')
                             </x-slot:icon>
