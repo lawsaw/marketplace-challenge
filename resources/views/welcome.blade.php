@@ -15,7 +15,7 @@
 </head>
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
 <div class="min-h-screen flex flex-col">
-    <header class="bg-global-black h-[72px] grid items-center">
+    <header class="bg-global-black h-[72px] grid items-center sticky top-0 z-10">
         <x-primitives.viewport>
             <div class="flex justify-between">
                 <div class="flex flex-grow mr-2 md:mr-4 xl:mr-6">
@@ -36,7 +36,7 @@
                         </x-primitives.button>
                     </div>
                     <div class="flex-grow">
-                        <x-search-field></x-search-field>
+                        @livewire('search')
                     </div>
                 </div>
                 <div class="flex items-center md:space-x-2 xl:space-x-4">

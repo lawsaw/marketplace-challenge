@@ -8,7 +8,7 @@
         'primary' => 'px-4 h-10 rounded-lg text-white fill-white bg-global-green hover:bg-global-green-light hover:active:bg-global-green',
         'outline' => 'px-4 h-10 rounded-lg text-white fill-white bg-transparent border border-white hover:bg-white/40 hover:active:bg-white/50',
         'text' => 'px-0 text-sm text-global-blue fill-global-blue hover:text-link-hover hover:fill-link-hover',
-        'link' => 'px-0 text-sm text-global-blue fill-global-blue hover:text-global-red hover:fill-global-red hover:underline',
+        'link' => 'px-0 text-sm text-global-black text-global-blue fill-global-blue hover:text-global-red hover:fill-global-red hover:underline',
     ];
     $iconSizeClasses = [
         'small' => 'w-4 h-4',
@@ -24,5 +24,5 @@
             {{ $icon }}
         </svg>
     @endisset
-    <span>{{ $slot }}</span>
+    <span class="truncate">{{ $slot }}</span>
 </button>

@@ -33,6 +33,9 @@ export default {
             spacing: {
                 'symbol': '1ch',
             },
+            fontSize: {
+                '2xs': '0.625rem',
+            }
         },
         typography: (theme) => ({
             default: {
