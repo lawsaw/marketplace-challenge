@@ -41,7 +41,7 @@
                 </div>
                 <div class="flex items-center md:space-x-2 xl:space-x-4">
                     <div class="hidden md:block">
-                        <x-language-switcher></x-language-switcher>
+                        @livewire('language-switcher')
                     </div>
                     <?php
                         $headerButtons = [
