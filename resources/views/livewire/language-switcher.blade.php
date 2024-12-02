@@ -1,6 +1,13 @@
 <div
     class="relative"
-    x-data="{ popupOpened: false, currentLanguage: @entangle('currentLanguage') }"
+    x-data="{
+        popupOpened: false,
+        currentLanguage: @entangle('currentLanguage'),
+        closePopup() {
+            this.popupOpened = false;
+        }
+    }"
+    @click.away="closePopup"
 >
     <button
         class="h-10 text-white flex items-center gap-2"
@@ -24,7 +31,7 @@
                     <li>
                         <button
                             wire:click="changeLanguage('{{$language}}')"
-                            @click="popupOpened=!popupOpened"
+                            @click="closePopup"
                             class="h-10 w-full flex items-center justify-between px-4 text-sm uppercase hover:bg-global-black-10 hover:active:bg-global-black-20 transition-colors"
                         >
                             <span>{{ $language }}</span>
