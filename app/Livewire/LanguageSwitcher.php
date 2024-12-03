@@ -2,20 +2,22 @@
 
 namespace App\Livewire;
 
+use App\Models\Language;
 use Livewire\Component;
 
 class LanguageSwitcher extends Component
 {
-    public $languages = ['ua', 'ru'];
+    public $languages;
     public $currentLanguage;
 
     public function mount() {
-        $this->currentLanguage = $this->languages[0];
+        $this->languages = Language::all();
+        $this->currentLanguage = $this->languages->first();
     }
 
-    public function changeLanguage(string $language)
+    public function changeLanguage(string $languageId)
     {
-        $this->currentLanguage = $language;
+        $this->currentLanguage = $this->languages->find($languageId);
     }
 
     public function render()
