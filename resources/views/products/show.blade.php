@@ -1,4 +1,6 @@
-<div class="py-4">
+@extends('layouts.app')
+
+@section('content')
     <x-breadcrumbs></x-breadcrumbs>
     <div class="mt-4">
         <x-primitives.tab>
@@ -34,7 +36,7 @@
                                 </div>
                             </x-slot:test>
                             <x-slot:slot2 name="price">
-                                <div class="grid gap-2 items-center grid-cols-2 grid-rows-2 2xl:grid-rows-1 2xl:grid-cols-[max-content_max-content_max-content] 2xl:gap-4">
+                                <div class="grid gap-2 items-center grid-cols-2 grid-rows-2 xl:grid-rows-1 xl:grid-cols-[max-content_max-content_max-content] xl:gap-4">
                                     <div class="col-span-1">
                                         <div>
                                             <div class="text-global-green text-sm">Є в наявності</div>
@@ -44,7 +46,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-span-2 row-start-2 2xl:row-start-1 2xl:col-start-2">
+                                    <div class="col-span-2 row-start-2 xl:row-start-1 xl:col-start-2">
                                         <div class="">
                                             <x-primitives.button class="w-full">
                                                 <x-slot:icon>
@@ -54,8 +56,8 @@
                                             </x-primitives.button>
                                         </div>
                                     </div>
-                                    <div class="col-span-1 row-start-1 col-start-2 2xl:col-span-3">
-                                        <div class="flex justify-end 2xl:justify-start">
+                                    <div class="col-span-1 row-start-1 col-start-2 xl:col-span-3">
+                                        <div class="flex justify-end xl:justify-start">
                                             <x-primitives.icon-button theme="light">
                                                 @include('icons.compare')
                                             </x-primitives.icon-button>
@@ -137,4 +139,4 @@
             </x-slot:slot4>
         </x-primitives.tab>
     </div>
-</div>
+@endsection
