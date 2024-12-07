@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Livewire\Livewire;
 
 class ProductController extends Controller
 {
@@ -11,8 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::latest()->simplePaginate(3);
         return view('products.index', [
-            'title' => 'Test'
+            'title' => 'List',
+            'products' => $products,
         ]);
     }
 
@@ -21,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Livewire::mount('products.create', ['product' => 111]);
     }
 
     /**
@@ -35,10 +39,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
         return view('products.show', [
-            'title' => 'Test 2'
+            'title' => 'Test 2',
+            'product' => $product
         ]);
     }
 

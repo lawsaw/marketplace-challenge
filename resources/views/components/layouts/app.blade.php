@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <title>@yield('title', config('app.name'))</title>
-
+    <title>{{ $title ?? config('app.name') }}</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
@@ -18,7 +16,7 @@
         <main class="bg-white text-black flex-grow">
             <x-primitives.viewport>
                 <div class="py-4">
-                    @yield('content')
+                    {{ $slot }}
                 </div>
             </x-primitives.viewport>
         </main>

@@ -2,28 +2,34 @@
 
 namespace App\Livewire;
 
+use App\Models\Product;
 use Livewire\Component;
 
 class Search extends Component
 {
-
+//    #[Validate('required')]
     public $request = '';
-    public $history = [];
+    public $results = [];
+    public $loading = false;
 
-    public function submit(string $request = null)
+    protected $rules = [
+        'request' => 'required',
+    ];
+
+    public function clearRequest()
     {
-        $this->request = $request ?? $this->request;
-        $this->history = array_filter($this->history, fn($item) => $item !== $this->request);
-        array_unshift($this->history, $this->request);
-    }
-    public function clear()
-    {
-        $this->request = '';
+        $this->reset('request', 'results', 'loading');
     }
 
-    public function clearHistory()
+    public function updatedRequest($request)
     {
-        $this->history = [];
+        $this->reset('results', 'loading');
+        $this->validate();
+        $this->loading = true;
+        sleep(1); // just to let "loading" to display for a while
+        $searchTerm = "%{$request}%";
+        $this->results = Product::where('title', 'LIKE', $searchTerm)->get();
+        $this->loading = false;
     }
 
     public function render()
