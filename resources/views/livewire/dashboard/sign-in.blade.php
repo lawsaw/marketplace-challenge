@@ -2,12 +2,17 @@
     title="Sign In to Dashboard"
     submitLabel="Sign In"
 >
-    <form>
+
+    @if($loginMessage)
+        <p class="text-sm text-red-500 font-semibold mb-4">{{ $loginMessage  }}</p>
+    @endif
+
+    <form wire:submit="signIn">
         <div class="mb-4">
-            <x-dashboard.input type="email" placeholder="Enter your email" label="Email" icon="icons.email"></x-dashboard.input>
+            <x-dashboard.input wire:model="email" type="email" placeholder="Enter your email" label="Email" icon="icons.email"></x-dashboard.input>
         </div>
         <div class="mb-6">
-            <x-dashboard.input type="password" placeholder="6+ Characters, 1 Capital letter" label="Re-type Password" icon="icons.password"></x-dashboard.input>
+            <x-dashboard.input wire:model="password" type="password" placeholder="6+ Characters, 1 Capital letter" label="Re-type Password" icon="icons.password"></x-dashboard.input>
         </div>
 
         <div class="mb-5">

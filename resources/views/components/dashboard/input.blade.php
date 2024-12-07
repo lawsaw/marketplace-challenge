@@ -1,8 +1,6 @@
 @props([
-    'type' => 'text',
     'label' => null,
-    'placeholder' => '',
-    'icon' => null
+    'icon' => null,
 ])
 
 <div>
@@ -13,9 +11,8 @@
     @endisset
     <div class="relative">
         <input
-            type="{{ $type }}"
-            placeholder="{{ $placeholder }}"
-            class="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+            type="text"
+            {{ $attributes->merge(['class' => 'w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary']) }}
         />
         @isset($icon)
             <span class="absolute right-4 top-4">
@@ -23,4 +20,7 @@
             </span>
         @endisset
     </div>
+    @error($attributes->get('wire:model'))
+        <p class="text-sm text-red-500 font-semibold">{{ $message  }}</p>
+    @enderror
 </div>

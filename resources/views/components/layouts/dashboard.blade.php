@@ -18,9 +18,13 @@
     :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
 >
 <div class="flex h-screen overflow-hidden">
-{{--    <x-dashboard.sidebar></x-dashboard.sidebar>--}}
+    @auth
+        <x-dashboard.sidebar></x-dashboard.sidebar>
+    @endauth
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-{{--        <x-dashboard.header></x-dashboard.header>--}}
+        @auth
+            <x-dashboard.header></x-dashboard.header>
+        @endauth
         <main>
             <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
                 {{ $slot }}
