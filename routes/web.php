@@ -9,13 +9,13 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('home');
 });
 
 Route::group(['prefix' => 'products'], function () {
     Route::controller(ProductController::class)->group(function () {
-        Route::get('/', 'index');
-        Route::get('{product}', 'show');
+        Route::get('/', 'index')->name('products');
+        Route::get('{product}', 'show')->name('product');
     });
 });
 
