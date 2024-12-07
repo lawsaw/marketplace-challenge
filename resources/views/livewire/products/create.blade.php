@@ -1,3 +1,3 @@
 <div>
-    Hello from the create page
+    Hello from the create page!
 </div>

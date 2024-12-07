@@ -63,7 +63,7 @@
                     @if(count($results))
                         <ul>
                             @foreach($results as $result)
-                                <li class="flex items-center px-4 h-8 relative">
+                                <li wire:key="{{ $result->id }}" class="flex items-center px-4 h-8 relative">
                                     <svg class="w-6 h-6 fill-global-black-20 mr-4">
                                         @include('icons.search')
                                     </svg>
