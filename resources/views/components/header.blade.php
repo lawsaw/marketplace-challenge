@@ -28,16 +28,17 @@
                 </div>
                 <?php
                 $headerButtons = [
-                    ['href' => '', 'icon' => 'icons.orders', 'counter' => 0, 'visible' => false],
-                    ['href' => '', 'icon' => 'icons.simple-bell', 'counter' => 2, 'visible' => false],
-                    ['href' => '', 'icon' => 'icons.compare', 'counter' => 0, 'visible' => false],
-                    ['href' => '', 'icon' => 'icons.heart-empty', 'counter' => 0, 'visible' => false],
+//                    ['href' => '', 'icon' => 'icons.orders', 'counter' => 0, 'visible' => false],
+//                    ['href' => '', 'icon' => 'icons.simple-bell', 'counter' => 2, 'visible' => false],
+//                    ['href' => '', 'icon' => 'icons.compare', 'counter' => 0, 'visible' => false],
+//                    ['href' => '', 'icon' => 'icons.heart-empty', 'counter' => 0, 'visible' => false],
                     ['href' => '', 'icon' => 'icons.basket', 'counter' => 0, 'visible' => true],
+                    ['href' => route('login'), 'icon' => 'icons.user-simple', 'counter' => 0, 'visible' => false],
                 ]
                 ?>
                 @foreach($headerButtons as $headerButton)
                     <div class="{{ !$headerButton['visible'] ? 'hidden' : '' }} md:block">
-                        <x-primitives.icon-button counter="{{ $headerButton['counter'] }}">
+                        <x-primitives.icon-button href="{{ $headerButton['href'] }}" counter="{{ $headerButton['counter'] }}">
                             @include($headerButton['icon'])
                         </x-primitives.icon-button>
                     </div>

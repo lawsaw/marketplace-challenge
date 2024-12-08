@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Livewire\Dashboard;
+namespace App\Livewire\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Password;
+use Livewire\Component;
 
-class SignUp extends AdminComponent
+class SignUp extends Component
 {
-
     public $name = '';
     public $email = '';
     public $password = '';
@@ -19,7 +18,8 @@ class SignUp extends AdminComponent
         return [
             'name' => ['required'],
             'email' => ['required', 'email', 'max:254'],
-            'password' => ['required', Password::min(6), 'confirmed'],
+//            'password' => ['required', Password::min(6), 'confirmed'],
+            'password' => ['required', 'confirmed'],
         ];
     }
 
@@ -28,11 +28,10 @@ class SignUp extends AdminComponent
         $data = $this->validate();
         $user = User::create($data);
         Auth::login($user);
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
-
     public function render()
     {
-        return view('livewire.dashboard.sign-up');
+        return view('livewire.auth.sign-up');
     }
 }

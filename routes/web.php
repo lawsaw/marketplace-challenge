@@ -2,8 +2,8 @@
 
 use App\Livewire\Products\Create as ProductCreate;
 use App\Livewire\Dashboard\Home as DashboardHome;
-use App\Livewire\Dashboard\SignIn as DashboardSignIn;
-use App\Livewire\Dashboard\SignUp as DashboardSignUp;
+use App\Livewire\Auth\SignIn as AuthSignIn;
+use App\Livewire\Auth\SignUp as AuthSignUp;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +19,9 @@ Route::group(['prefix' => 'products'], function () {
     });
 });
 
+Route::get('/sign-in', AuthSignIn::class)->name('login');
+Route::get('/sign-up', AuthSignUp::class)->name('register');
 
 Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('/', DashboardHome::class)->name('dashboard');
-    Route::get('/sign-in', DashboardSignIn::class)->name('sign-in');
-    Route::get('/sign-up', DashboardSignUp::class)->name('sign-up');
+    Route::get('/', DashboardHome::class)->name('dashboard')->middleware('auth');
 });

@@ -1,10 +1,12 @@
 @props([
+    'href' => null,
     'theme' => 'dark',
     'iconSize' => 'medium',
     'counter' => "0",
 ])
 
 @php
+    $tag = $href ? 'a' : 'button';
     $themeClasses = [
         'dark' => 'fill-white hover:bg-white/20 hover:active:bg-white/25',
         'light' => 'fill-global-black-40 hover:fill-link-hover',
@@ -18,7 +20,10 @@
     $iconSizeClass = $iconSizeClasses[$iconSize] ?? $iconSizeClasses['medium'];
 @endphp
 
-<button {{ $attributes->merge(['class' => "relative w-10 h-10 flex items-center justify-center rounded flex-shrink-0 {$themeClass}"]) }}>
+<{{ $tag }} {{ $attributes->merge([
+        'class' => "relative w-10 h-10 flex items-center justify-center rounded flex-shrink-0 {$themeClass}",
+        'href' => $href ?? null
+    ]) }}>
     <svg class="{{ $iconSizeClass }}">
         {{ $slot }}
     </svg>
@@ -27,4 +32,4 @@
             {{ $counter }}
         </div>
     @endif
-</button>
+</{{ $tag }}>

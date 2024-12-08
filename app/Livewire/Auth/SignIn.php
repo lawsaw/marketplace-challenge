@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Livewire\Dashboard;
+namespace App\Livewire\Auth;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Validate;
+use Livewire\Component;
 
-class SignIn extends AdminComponent
+class SignIn extends Component
 {
 
     #[Validate('required')]
@@ -28,9 +27,8 @@ class SignIn extends AdminComponent
             $this->loginMessage = "Incorrect email and/or password";
         }
     }
-
     public function render()
     {
-        return view('livewire.dashboard.sign-in');
+        return view('livewire.auth.sign-in');
     }
 }

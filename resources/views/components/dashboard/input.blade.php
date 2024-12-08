@@ -21,6 +21,6 @@
         @endisset
     </div>
     @error($attributes->get('wire:model'))
-        <p class="text-sm text-red-500 font-semibold">{{ $message  }}</p>
+        <x-dashboard.error>{{ $message  }}</x-dashboard.error>
     @enderror
 </div>
