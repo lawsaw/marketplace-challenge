@@ -1,3 +1,3 @@
-<x-dashboard.page route="{{ route('dashboard-product-create') }}">
-    create
+<x-dashboard.page title="Create product">
+    Content
 </x-dashboard.page>

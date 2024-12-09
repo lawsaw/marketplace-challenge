@@ -1,6 +1,5 @@
 <?php
 
-use App\Livewire\Products\Create as ProductCreate;
 use App\Livewire\Dashboard\Home as DashboardHome;
 use App\Livewire\Dashboard\Products as DashboardProducts;
 use App\Livewire\Dashboard\ProductCreate as DashboardProductCreate;

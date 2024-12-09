@@ -1,3 +1,3 @@
-<x-dashboard.page route="{{ route('dashboard') }}">
-    dashboard
+<x-dashboard.page title="Dashboard">
+    Content
 </x-dashboard.page>
