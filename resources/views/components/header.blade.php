@@ -1,9 +1,11 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
+
 <header class="bg-global-black h-[72px] grid items-center sticky top-0 z-10">
     <x-primitives.viewport>
         <div class="flex justify-between">
             <div class="flex flex-grow mr-2 md:mr-4 xl:mr-6">
                 <div class="mr-2 md:mr-4">
-                    <x-primitives.icon-button>
+                    <x-primitives.icon-button @click.stop="sidebarToggle = !sidebarToggle">
                         @include('icons.menu')
                     </x-primitives.icon-button>
                 </div>
@@ -33,7 +35,6 @@
 //                    ['href' => '', 'icon' => 'icons.compare', 'counter' => 0, 'visible' => false],
 //                    ['href' => '', 'icon' => 'icons.heart-empty', 'counter' => 0, 'visible' => false],
                     ['href' => '', 'icon' => 'icons.basket', 'counter' => 0, 'visible' => true],
-                    ['href' => route('login'), 'icon' => 'icons.user-simple', 'counter' => 0, 'visible' => false],
                 ]
                 ?>
                 @foreach($headerButtons as $headerButton)
@@ -43,6 +44,20 @@
                         </x-primitives.icon-button>
                     </div>
                 @endforeach
+
+
+                @guest
+                    <div>
+                        <x-primitives.icon-button href="{{ route('login') }}">
+                            @include('icons.user-simple')
+                        </x-primitives.icon-button>
+                    </div>
+                @endguest
+                @auth
+                    <div class="text-white">
+                        Welcome, {{ Auth::user()->name }} (<a href="{{ route('logout') }}" class="font-semibold underline hover:no-underline">logout</a>)
+                    </div>
+                @endauth
             </div>
         </div>
     </x-primitives.viewport>

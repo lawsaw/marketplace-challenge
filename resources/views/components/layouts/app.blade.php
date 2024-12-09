@@ -9,9 +9,14 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
-<body class="font-sans antialiased dark:bg-black dark:text-white/50">
+<body
+    x-data="{ sidebarToggle: false }"
+    class="font-sans antialiased dark:bg-black dark:text-white/50"
+>
     <div class="min-h-screen flex flex-col">
+        <x-sidebar></x-sidebar>
         <x-header></x-header>
         <main class="bg-white text-black flex-grow">
             <x-primitives.viewport>
@@ -22,5 +27,6 @@
         </main>
         <x-footer></x-footer>
     </div>
+    @livewireScripts
 </body>
 </html>

@@ -1,4 +1,3 @@
-<div>
+<x-dashboard.page route="{{ route('dashboard') }}">
     dashboard
-    {{-- Because she competes with no one, no one can compete with her. --}}
-</div>
+</x-dashboard.page>
