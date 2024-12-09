@@ -1,5 +1,5 @@
 <x-dashboard.page title="Products">
-    <x-dashboard.table.wrapper title="Top Channels" min-width="700px">
+    <x-dashboard.table.wrapper title="Top Channels" class="min-w-[700px]">
         <x-dashboard.table.header-row>
             <x-dashboard.table.header-cell class="!flex-none !w-15">Id</x-dashboard.table.header-cell>
             <x-dashboard.table.header-cell class="!flex-auto !w-60">Title</x-dashboard.table.header-cell>
@@ -21,14 +21,20 @@
                     >
                         @include('icons.dashboard.eye')
                     </x-dashboard.table.action-button>
-                    <x-dashboard.table.action-button>
+                    <x-dashboard.table.action-button
+                        wire:navigate
+                        href="{{ route('dashboard-edit-product', $product->id) }}"
+                    >
                         @include('icons.dashboard.edit')
                     </x-dashboard.table.action-button>
-                    <x-dashboard.table.action-button>
+                    <x-dashboard.table.action-button
+                        wire:click="delete({{$product}})"
+                    >
                         @include('icons.dashboard.trash')
                     </x-dashboard.table.action-button>
                 </x-dashboard.table.cell>
             </x-dashboard.table.row>
         @endforeach
     </x-dashboard.table.wrapper>
+    {{ $products->links() }}
 </x-dashboard.page>

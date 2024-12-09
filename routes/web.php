@@ -1,8 +1,9 @@
 <?php
 
 use App\Livewire\Dashboard\Home as DashboardHome;
-use App\Livewire\Dashboard\Products as DashboardProducts;
-use App\Livewire\Dashboard\ProductCreate as DashboardProductCreate;
+use App\Livewire\Dashboard\ProductList as DashboardProductList;
+use App\Livewire\Dashboard\CreateProduct as DashboardCreateProduct;
+use App\Livewire\Dashboard\EditProduct as DashboardEditProduct;
 use App\Livewire\Auth\SignIn as AuthSignIn;
 use App\Livewire\Auth\SignUp as AuthSignUp;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,7 @@ Route::get('/logout', function() {
 
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', DashboardHome::class)->name('dashboard')->middleware('auth');
-    Route::get('/products', DashboardProducts::class)->name('dashboard-products')->middleware('auth');
-    Route::get('/product-create', DashboardProductCreate::class)->name('dashboard-product-create')->middleware('auth');
+    Route::get('/products', DashboardProductList::class)->name('dashboard-product-list')->middleware('auth');
+    Route::get('/product/create', DashboardCreateProduct::class)->name('dashboard-create-product')->middleware('auth');
+    Route::get('/product/{product}/edit', DashboardEditProduct::class)->name('dashboard-edit-product')->middleware('auth');
 });

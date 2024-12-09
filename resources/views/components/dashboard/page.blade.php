@@ -1,5 +1,6 @@
 @props([
     'title' => null,
+    'size' => null,
 ])
 
 <div class="mx-auto max-w-screen-2xl">
@@ -13,7 +14,10 @@
         @endisset
 
     </div>
-    <div class="flex flex-col gap-10">
+    <div
+        class="flex flex-col gap-10"
+        :class="{ 'max-w-3xl mx-auto': '{{ $size }}' === 'compact' }"
+    >
         {{ $slot }}
     </div>
 </div>

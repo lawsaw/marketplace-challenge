@@ -7,9 +7,9 @@
     $links = [
         ['href' => route('dashboard'), 'label' => 'Dashboard', 'icon' => 'icons.dashboard.home'],
         [
-            'category' => 'products', 'label' => 'Products', 'icon' => 'icons.dashboard.table', 'subLinks' => [
-            ['href' => route('dashboard-products'), 'label' => 'List'],
-            ['href' => route('dashboard-product-create'), 'label' => 'Create'],
+            'category' => 'products', 'label' => 'ProductList', 'icon' => 'icons.dashboard.table', 'subLinks' => [
+            ['href' => route('dashboard-product-list'), 'label' => 'List'],
+            ['href' => route('dashboard-create-product'), 'label' => 'Create'],
         ]
         ],
     ];

@@ -10,7 +10,7 @@
             {{ $slot }}
         </div>
     @else
-        <h5 class="text-ellipsis overflow-hidden font-medium text-black dark:text-white">
+        <h5 class="text-sm text-ellipsis overflow-hidden font-medium text-black dark:text-white">
             {{ $slot }}
         </h5>
     @endif
