@@ -20,7 +20,7 @@
 
 <{{ $tag }}
     {{ $attributes->merge([
-        'class' => "gap-2.5 transition-colors duration-200 flex items-center justify-center space-x-3 text-center font-medium rounded-md px-10 py-4 lg:px-8 xl:px-10 {$themeClass}",
+        'class' => "gap-2.5 transition-colors duration-200 flex items-center justify-center space-x-3 text-center font-medium rounded-md px-10 py-4 lg:px-8 xl:px-10 disabled:opacity-50 disabled:pointer-events-none {$themeClass}",
         'href' => $href ?? null
     ]) }}
 >

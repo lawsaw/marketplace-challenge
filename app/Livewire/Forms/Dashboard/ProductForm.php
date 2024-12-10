@@ -19,11 +19,14 @@ class ProductForm extends Form
     #[Validate('required')]
     public $description;
 
+    public $sold = false;
+    public $published = true;
+
     public function store()
     {
         $this->validate();
 //        Product::create($this->all());
-        Product::create($this->only(['title', 'price', 'description']));
+        Product::create($this->only(['title', 'price', 'description', 'sold', 'published']));
     }
 
     public function setProduct(Product $product)
@@ -31,6 +34,8 @@ class ProductForm extends Form
         $this->title = $product->title;
         $this->price = $product->price;
         $this->description = $product->description;
+        $this->sold = $product->sold;
+        $this->published = $product->published;
 
         $this->product = $product;
     }
@@ -39,7 +44,7 @@ class ProductForm extends Form
     {
         $this->validate();
         $this->product->update(
-            $this->only(['title', 'price', 'description'])
+            $this->only(['title', 'price', 'description', 'sold', 'published'])
         );
     }
 }

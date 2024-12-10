@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->unsignedInteger('price');
+            $table->boolean('sold')->default(false);
+            $table->boolean('published')->default(true);
             $table->timestamps();
         });
     }

@@ -6,9 +6,7 @@
 
 <div>
     @isset($label)
-        <label class="mb-2.5 block font-medium text-black dark:text-white">
-            {{ $label }}
-        </label>
+        <x-dashboard.label target="{{ $attributes->get('wire:model') }}">{{ $label }}</x-dashboard.label>
     @endisset
     <div class="relative">
         @if($type === 'textarea')
