@@ -15,6 +15,12 @@ class ProductList extends AdminComponent
         $product->delete();
     }
 
+    public function editPublished(Product $product, $value)
+    {
+        $product->published = $value;
+        $product->save();
+    }
+
     public function render()
     {
         return view('livewire.dashboard.product-list', [

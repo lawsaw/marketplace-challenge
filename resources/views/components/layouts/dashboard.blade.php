@@ -18,10 +18,8 @@
     <x-dashboard.sidebar></x-dashboard.sidebar>
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
         <x-dashboard.header></x-dashboard.header>
-        <main>
-            <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                {{ $slot }}
-            </div>
+        <main class="relative w-full grow mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            {{ $slot }}
         </main>
     </div>
 </div>

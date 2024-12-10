@@ -11,7 +11,7 @@
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form class="space-y-6" wire:submit="signIn">
             <x-primitives.form.input wire:model="email" type="email" placeholder="Enter your email" label="Email"></x-primitives.form.input>
-            <x-primitives.form.input wire:model="password" type="email" placeholder="Enter your password" label="Password"></x-primitives.form.input>
+            <x-primitives.form.input wire:model="password" type="password" placeholder="Enter your password" label="Password"></x-primitives.form.input>
             <x-primitives.button class="w-full">Sign in</x-primitives.button>
         </form>
         <p class="mt-10 text-center text-sm/6 text-gray-500">

@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->simplePaginate(3);
+        $products = Product::where('published', true)->latest()->simplePaginate(3);
         return view('products.index', [
             'title' => 'List',
             'products' => $products,
@@ -41,6 +41,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if (!$product->published) {
+            abort(404);
+        }
         return view('products.show', [
             'title' => 'Test 2',
             'product' => $product

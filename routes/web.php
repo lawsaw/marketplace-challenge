@@ -30,8 +30,8 @@ Route::get('/logout', function() {
 })->name('logout');
 
 Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('/', DashboardHome::class)->name('dashboard')->middleware('auth');
-    Route::get('/products', DashboardProductList::class)->name('dashboard-product-list')->middleware('auth');
-    Route::get('/product/create', DashboardCreateProduct::class)->name('dashboard-create-product')->middleware('auth');
-    Route::get('/product/{product}/edit', DashboardEditProduct::class)->name('dashboard-edit-product')->middleware('auth');
+    Route::get('/', DashboardHome::class)->lazy()->name('dashboard')->middleware('auth');
+    Route::get('/products', DashboardProductList::class)->lazy()->name('dashboard-product-list')->middleware('auth');
+    Route::get('/product/create', DashboardCreateProduct::class)->lazy()->name('dashboard-create-product')->middleware('auth');
+    Route::get('/product/{product}/edit', DashboardEditProduct::class)->lazy()->name('dashboard-edit-product')->middleware('auth');
 });

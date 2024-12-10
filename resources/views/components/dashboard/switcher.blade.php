@@ -1,5 +1,4 @@
-{{--<div x-data="{ switcherToggle: @entangle($attributes->wire('model')) }">--}}
-<div x-data="{ switcherToggle: @entangle($attributes->get('wire:model')) }">
+<div>
     @isset($label)
         <x-dashboard.label target="{{ $attributes->get('wire:model') }}">{{ $label }}</x-dashboard.label>
     @endisset
@@ -9,20 +8,16 @@
         <div class="relative">
             <input
                 type="checkbox"
-{{--                @change="switcherToggle = !switcherToggle"--}}
-                x-model="switcherToggle"
                 {{ $attributes->merge([
-                    'class' => 'sr-only',
+                    'class' => 'sr-only peer',
                 ]) }}
             />
             <div
                 class="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"
             ></div>
             <div
-                :class="switcherToggle && '!right-1 !translate-x-full !bg-primary dark:!bg-white'"
-                class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition"
+                class="absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition peer-checked:!right-1 peer-checked:!translate-x-full peer-checked:!bg-primary dark:peer-checked:!bg-white"
             ></div>
         </div>
     </label>
-
 </div>
