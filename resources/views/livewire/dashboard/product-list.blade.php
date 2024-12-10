@@ -29,6 +29,7 @@
                     </x-dashboard.table.action-button>
                     <x-dashboard.table.action-button
                         wire:click="delete({{$product}})"
+                        wire:confirm="Are you sure you want to delete this product?"
                     >
                         @include('icons.dashboard.trash')
                     </x-dashboard.table.action-button>

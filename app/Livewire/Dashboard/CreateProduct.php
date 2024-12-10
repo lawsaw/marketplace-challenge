@@ -2,25 +2,16 @@
 
 namespace App\Livewire\Dashboard;
 
-use App\Models\Product;
+use App\Livewire\Forms\Dashboard\ProductForm;
 use Livewire\Attributes\Title;
-use Livewire\Attributes\Validate;
 
 #[Title('Create product')]
 class CreateProduct extends AdminComponent
 {
-    #[Validate('required')]
-    public $title;
-
-    #[Validate('required')]
-    public $price;
-
-    #[Validate('required')]
-    public $description;
+    public ProductForm $form;
 
     public function save() {
-        $this->validate();
-        Product::create($this->all());
+        $this->form->store();
         $this->redirect(route('dashboard-product-list'), navigate: true);
     }
 
