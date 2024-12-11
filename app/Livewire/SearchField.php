@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Models\Product;
 use Livewire\Component;
 
-class Search extends Component
+class SearchField extends Component
 {
 //    #[Validate('required')]
     public $request = '';
@@ -34,6 +34,6 @@ class Search extends Component
 
     public function render()
     {
-        return view('livewire.search');
+        return view('livewire.search-field');
     }
 }

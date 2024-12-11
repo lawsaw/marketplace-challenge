@@ -21,7 +21,7 @@
                     </x-primitives.button>
                 </div>
                 <div class="flex-grow">
-                    @livewire('search')
+                    @livewire('search-field')
                 </div>
             </div>
             <div class="flex items-center md:space-x-2 xl:space-x-4">

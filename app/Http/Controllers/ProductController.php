@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::where('published', true)->latest()->simplePaginate(3);
+        $products = Product::where('published', true)->latest()->simplePaginate(10);
         return view('products.index', [
             'title' => 'List',
             'products' => $products,

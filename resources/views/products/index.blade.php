@@ -23,11 +23,10 @@
         <div class="text-sm">Sort</div>
     </div>
     <div class="flex">
-
         <div
             x-transition.opacity.duration.300ms
             x-show="sidebarFiltersToggle"
-            class="fixed inset-0 z-30 bg-black/50 lg:hidden"
+            class="fixed inset-0 z-30 bg-black/50 lg:hidden lg:z-auto"
         ></div>
         <div
             class="
@@ -44,17 +43,65 @@
                 "
             >Sidebar</div>
         </div>
-        <div class="w-full lg:w-[calc(100%-250px)] pt-4 lg:p-4">
-            <div>
+        <div class="w-full lg:w-[calc(100%-250px)]">
+
+
+            <ul class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
                 @foreach($products as $product)
-                    <a href="/products/{{ $product->id }}" class="block px-4 py-6 border border-gray-200 rounded-lg">
-                        <div class="font-bold text-500-blue text-sm">{{ $product->title }}</div>
-                        <div>
-                            <strong class="text-laracasts">{{ $product->price }}</strong>
+                    <li class="border-b border-r border-gray-200">
+                        <div
+                            class="relative group block overflow-hidden hover:overflow-visible hover:z-10 text-global-black"
+                        >
+                            <div class="
+                                    relative
+                                    bg-white
+                                    px-4 pt-6 pb-2
+                                    before:content-[''] before:hidden before:absolute before:-left-0 before:-right-0 before:bottom-0 before:-top-1
+                                    before:shadow-[0px_16px_16px_rgba(0,0,0,0.3)]
+                                    group-hover:before:block
+                                    before:pointer-events-none
+                                "
+                            >
+                                <a href="{{ route('product', $product->id) }}" class="h-50">
+                                    <img
+                                        src="http://picsum.photos/seed/10/640/480"
+                                        alt="{{ $product->title }}}"
+                                        class="block object-contain w-full h-full"
+                                    >
+                                </a>
+                                <a
+                                    href="{{ route('product', $product->id) }}"
+                                    class="text-global-black text-sm h-9 overflow-hidden mt-4"
+                                >
+                                    {{ $product->title }}
+                                </a>
+                                <div class="mt-4 flex items-center justify-between">
+                                    <div class="text-2xl">{{ $product->price }}</div>
+                                    <div>
+                                        <x-primitives.icon-button href="#" theme="light">
+                                            @include('icons.basket')
+                                        </x-primitives.icon-button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden relative group-hover:block">
+                                <div class="
+                                    absolute px-4 pb-6 top-0 left-0 right-0 bg-white
+                                    text-sm
+                                    before:content-[''] before:absolute before:inset-0
+                                    before:shadow-[0px_16px_16px_rgba(0,0,0,0.3)]
+                                    before:pointer-events-none
+                                ">
+                                   <div class="line-clamp-2">
+                                       {{ $product->description }}
+                                   </div>
+                                </div>
+                            </div>
                         </div>
-                    </a>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
+
             <div>{{ $products->links() }}</div>
         </div>
     </div>
