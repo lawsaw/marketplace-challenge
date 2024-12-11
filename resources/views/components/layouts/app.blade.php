@@ -12,7 +12,7 @@
     @livewireStyles
 </head>
 <body
-    x-data="{ sidebarToggle: false }"
+    x-data="{ sidebarMenuToggle: false, sidebarFiltersToggle: false }"
     class="font-sans antialiased dark:bg-black dark:text-white/50"
 >
     <div class="min-h-screen flex flex-col">
@@ -20,9 +20,7 @@
         <x-header></x-header>
         <main class="bg-white text-black flex-grow">
             <x-primitives.viewport>
-                <div class="py-4">
-                    {{ $slot }}
-                </div>
+                {{ $slot }}
             </x-primitives.viewport>
         </main>
         <x-footer></x-footer>

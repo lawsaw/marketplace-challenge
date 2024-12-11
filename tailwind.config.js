@@ -28,6 +28,7 @@ export default {
                 'global-orange': '#ff5c00',
                 'global-yellow': '#ffa900',
                 'global-blue': '#3e77aa',
+                'global-blue-light': '#4096e3',
                 'link-hover': '#ff7878',
             },
             spacing: {

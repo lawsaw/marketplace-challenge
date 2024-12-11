@@ -1,21 +1,21 @@
 <div
-    class="relative z-20"
+    class="relative z-30"
 >
     <div
         x-transition.opacity.duration.300ms
-        x-show="sidebarToggle"
+        x-show="sidebarMenuToggle"
         class="fixed inset-0 bg-black/50"
     ></div>
     <div
-        @click.away="sidebarToggle = false"
-        class="fixed inset-y-0 left-0 w-[320px] bg-white text-global-black transition-all -translate-x-full"
-        :class="{ '!translate-x-0': sidebarToggle }"
+        @click.away="sidebarMenuToggle = false"
+        class="fixed inset-y-0 left-0 w-[320px] bg-white text-global-black transition-all duration-300 -translate-x-full"
+        :class="{ '!translate-x-0': sidebarMenuToggle }"
     >
         <div class="flex flex-col h-full">
             <div class="bg-global-black px-4 py-2 flex items-center justify-between shrink-0">
-                <x-logo-full height="24px"></x-logo-full>
+                <x-logo-full class="h-[24px]"></x-logo-full>
                 @livewire('language-switcher')
-                <x-primitives.icon-button @click="sidebarToggle = false">
+                <x-primitives.icon-button @click="sidebarMenuToggle = false">
                     @include('icons.close-modal')
                 </x-primitives.icon-button>
             </div>

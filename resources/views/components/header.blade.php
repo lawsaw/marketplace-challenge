@@ -1,11 +1,11 @@
 @php use Illuminate\Support\Facades\Auth; @endphp
 
-<header class="bg-global-black h-[72px] grid items-center sticky top-0 z-10">
+<header class="bg-global-black h-[72px] grid items-center sticky top-0 z-20">
     <x-primitives.viewport>
         <div class="flex justify-between">
             <div class="flex flex-grow mr-2 md:mr-4 xl:mr-6">
                 <div class="mr-2 md:mr-4">
-                    <x-primitives.icon-button @click.stop="sidebarToggle = !sidebarToggle">
+                    <x-primitives.icon-button @click.stop="sidebarMenuToggle = !sidebarMenuToggle">
                         @include('icons.menu')
                     </x-primitives.icon-button>
                 </div>
@@ -17,7 +17,7 @@
                         <x-slot:icon>
                             @include('icons.catalog')
                         </x-slot:icon>
-                        Каталог
+                        Catalog
                     </x-primitives.button>
                 </div>
                 <div class="flex-grow">

@@ -2,7 +2,7 @@
     <x-breadcrumbs></x-breadcrumbs>
     <div class="mt-4">
         <x-primitives.tab>
-            <x-slot:slot1 name="Усе про товар">
+            <x-slot:slot1 name="All about the product">
 
                 <div class="md:flex">
                     <div class="md:w-1/2 md:mr-8">
@@ -132,13 +132,13 @@
                 </div>
 
             </x-slot:slot1>
-            <x-slot:slot2 name="Характеристики">
+            <x-slot:slot2 name="Specs">
                 Specs
             </x-slot:slot2>
-            <x-slot:slot3 name="Залишити відгук">
+            <x-slot:slot3 name="Leave a feedback">
                 Leave a feedback
             </x-slot:slot3>
-            <x-slot:slot4 name="Питання">
+            <x-slot:slot4 name="FAQ">
                 FAQ
             </x-slot:slot4>
         </x-primitives.tab>

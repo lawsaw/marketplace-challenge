@@ -54,9 +54,9 @@
                     <div class="flex items-center justify-between px-4 h-8">
                         <div class="text-global-black-60 text-2xs">
                             @if(count($results))
-                                Знайдено
+                                Results
                             @else
-                                Результатов не найдено
+                                No results
                             @endif
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 wire:click="submit"
                 @click="closeDropdown"
             >
-                Знайти
+                Search
             </x-primitives.button>
         </div>
     </div>
