@@ -71,7 +71,7 @@
                                         wire:navigate
                                         href="/products/{{ $result->id }}"
                                         theme="link"
-                                        class="absolute inset-0 pl-14 w-full !justify-start !text-global-black hover:!text-global-red hover:bg-global-black/5"
+                                        class="absolute inset-0 !pl-14 w-full !justify-start !text-global-black hover:!text-global-red hover:bg-global-black/5"
                                     >
                                         <span>{{ $result->title }}</span>
                                     </x-primitives.button>

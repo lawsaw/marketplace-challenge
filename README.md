@@ -1,66 +1,47 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+I have chosen [Rozetka](https://rozetka.com.ua/) as a source. This is the most popular webshop in Ukraine.
 
-## About Laravel
+There are BTC and Dashboard sides of my application. Access to the Dashboard requires authorisation.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- composer install
+- php artisan migrate --seed (php artisan migrate:fresh --seed => if tables have already existed)
+- npm install
+- npm run dev (in development env)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## BTC
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Existing pages: 
+- Home page /. There is no content.
+- Listing Search Page /products
+- Listing Detail Page /products/1
+- Login page /sign-in
+- Registration page /sign-up
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Special Livewire components:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- SearchField. I tried to create an exact copy of the original search component. User prints his request and receives the results in a dropdown. The handler looks for coincidences in products' title.
+- LanguageSwitcher. This is also the visual copy of the original switcher. The backend part of the component handles the current language. But there is no effect on the site language itself (fake feature).
+- Search. This component handles the logic in the Listing Search Page. I didn't make this page as "Livewire full page component", because I decided to handle all BTC pages in a single style. It is devided into filters and listing parts. There are filters for "Price" and "is Sold" product properties. Filters' selected values are stored in the GET URL params.
 
-## Laravel Sponsors
+## Dashboard
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Existing pages:
 
-### Premium Partners
+- Home page /dashboard. There is no content
+- Listings List page /dashboard/products. Each item has links to a BTC product view page, to an edit page, to delete the current product. Also, there is a publishing switcher. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Listing Edit page /dashboard/product/1/edit
+- Listing Create page /dashboard/product/create
 
-## Contributing
+All Dashboard pages are "Livewire full page components". Navigating behaves like SPA (without page refresh)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+The layout source is picked from [Tailadmin](https://tailadmin.com/). That is why I had to implement extra tailwind config (tailwind.dashboard.config.js) to separate styles from the BTC part.
 
-## Code of Conduct
+## Database
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+I have created only 2 extra tables: products and languages. There are also Seeders for them.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
